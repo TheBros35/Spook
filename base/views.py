@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from .models import Computer
 
-
-# Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    computers = Computer.objects.all()
+    context = {
+        'computers': computers,
+    }
+    return render(request=request, template_name='index.html', context=context)

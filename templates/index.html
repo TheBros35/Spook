@@ -23,6 +23,17 @@
             <tr><td>B4-96-91-8C-79-6D</td><td><form action="/send" method="get"><button class="p-button--positive"
             type="submit" name="mac_address" value="B4-96-91-8C-79-6D">Send</button></form></td></tr>
             {% endcomment %}
+            {% for computer in computers %}
+                <tr>
+                    <td>{{ computer.mac_address }}</td>
+                    <td>
+                        <form action="/send" method="get">{% csrf_token %}
+                            <button class="p-button--positive" type="submit" name="mac_address"
+                                    value="{{ computer.mac_address }}">Send</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
         </table>
     </div>
 
