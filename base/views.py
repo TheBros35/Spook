@@ -32,4 +32,10 @@ def add(request):
         computer.save()
         return redirect('/')
     # else:
-        # return render_template('error_format.jinja2', mac_address=mac_address)
+    # return render_template('error_format.jinja2', mac_address=mac_address)
+
+
+def remove(request):
+    mac_address = request.GET['mac_address']
+    Computer.objects.filter(mac_address=mac_address).delete()
+    return redirect('/')

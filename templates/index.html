@@ -37,10 +37,6 @@
     <div class="row">
         <table>
             <tr><th>Name</th><th>Mac Address</th><th>Action</th></tr>
-            {% comment %}
-            <tr><td><form action="/add" method="get"><input name="mac_address" required="">
-                <button class="p-button" type="submit">Add</button> </form></td></tr>
-            {% endcomment %}
             <tr>
                 <form action="/add" method="get">
                     {% csrf_token %}
@@ -54,11 +50,15 @@
 
     <div class="row">
         <table>
-            <tr><th>Remove a Mac Address</th></tr>
-            {% comment %}
-            <tr><td><form action="/delete" method="get"><input name="mac_address" required="">
-                <button class="p-button--negative" type="submit">Remove</button> </form></td></tr>
-            {% endcomment %}
+            <tr><th>Mac Address</th><th></th><th>Action</th></tr>
+            <tr>
+                <form action="/remove" method="get">
+                    {% csrf_token %}
+                    <td><input name="mac_address" required></td>
+                    <td></td>
+                    <td><button class="p-button--negative" type="submit">Remove</button></td>
+                </form>
+            </tr>
         </table>
     </div>
 
