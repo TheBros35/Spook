@@ -18,13 +18,10 @@
     <div class="p-separator"></div>
     <div class="row">
         <table>
-            <tr><th>Mac Address</th><th>Action</th></tr>
-            {% comment %}
-            <tr><td>B4-96-91-8C-79-6D</td><td><form action="/send" method="get"><button class="p-button--positive"
-            type="submit" name="mac_address" value="B4-96-91-8C-79-6D">Send</button></form></td></tr>
-            {% endcomment %}
+            <tr><th>Name</th><th>Mac Address</th><th>Action</th></tr>
             {% for computer in computers %}
                 <tr>
+                    <td>{{ computer.name }}</td>
                     <td>{{ computer.mac_address }}</td>
                     <td>
                         <form action="/send" method="get">{% csrf_token %}
@@ -39,11 +36,19 @@
 
     <div class="row">
         <table>
-            <tr><th>Add new Mac Address</th></tr>
+            <tr><th>Name</th><th>Mac Address</th><th>Action</th></tr>
             {% comment %}
             <tr><td><form action="/add" method="get"><input name="mac_address" required="">
                 <button class="p-button" type="submit">Add</button> </form></td></tr>
             {% endcomment %}
+            <tr>
+                <form action="/add" method="get">
+                    {% csrf_token %}
+                    <td><input name="name" required></td>
+                    <td><input name="mac_address" required></td>
+                    <td><button class="p-button" type="submit">Add</button></td>
+                </form>
+            </tr>
         </table>
     </div>
 
