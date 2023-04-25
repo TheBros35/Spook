@@ -10,11 +10,11 @@ It can be run either standalone, or as a Docker container hosted at
 `docker-compose.yml` file to set it up.
 
 To run it from the command line: `docker run thebros35/spook -d -v spookVolume:/app/db 
---restart unless-stopped --network-mode host`
+--restart unless-stopped --network host`
 
 Usage is simple: enter a mac address into the Add field. The page will reload, and your entry will be saved in the 
 embedded db. Then, hit send, and a magic packet will be sent to 255.255.255.255.
 
 ### Voilà! Your device is now on.
 
-To build docker image, `docker build -t thebros35/spook .` and `docker push`.
+To build docker image, `docker build -t thebros35/spook .` and then `docker push`.
