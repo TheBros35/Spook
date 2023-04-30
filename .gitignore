@@ -3,3 +3,4 @@ spook/__pycache__
 .idea
 venv
 base/migrations
+db/db.sqlite3
